@@ -3,6 +3,6 @@ services:
     entrypoint:
       - sleep
       - infinity
-    image: miktex/miktex
+    image: mingc/latex
     volumes:
       - .:/article
