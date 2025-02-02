@@ -13,3 +13,4 @@ user-*.pdf
 *.log
 *.out
 
+old/
