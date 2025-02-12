@@ -134,7 +134,19 @@ In the figure above, we can identify the variables F, S, L, W, t, N, and C where
 \end{enumerate}
 
 
-To calculate the complex network properties, as we've discused in \ref{earthquake_networks}, we took each moving window and built their respective network, we took into account different node distance values of 10, 50, and 100 kilometers, per each event sequence of 50 and 100 events. The networks features we calculated from the resulting networks were degree centrality, clustering, betweenness centrality, closeness centrality, and page rank.
+To calculate the complex network properties, as discussed in Section \ref{earthquake_networks}, we constructed a network for each moving window of earthquake events. The geographical area was divided into a grid of nodes, with each node representing a specific distance in kilometers. We experimented with different node distances of 30, 50, and 100 kilometers.
+
+For each moving window, we built the corresponding network by connecting nodes based on the sequential occurrence of earthquake events. The edges between nodes were established according to the temporal order of events, forming a directed graph. Once the network was constructed, we calculated several complex network properties to capture the structural characteristics of the network. These properties included:
+
+\begin{itemize}
+    \item \textbf{Degree Centrality}: Measures the number of direct connections a node has. It helps identify the most connected nodes within the network.
+    \item \textbf{Clustering Coefficient}: Indicates the degree to which nodes tend to cluster together. It provides insight into the local interconnectedness of the network.
+    \item \textbf{Betweenness Centrality}: Quantifies the number of times a node acts as a bridge along the shortest path between two other nodes. It highlights nodes that play a critical role in connecting different parts of the network.
+    \item \textbf{Closeness Centrality}: Reflects how close a node is to all other nodes in the network. It measures the average shortest path length from a node to all other nodes.
+    \item \textbf{PageRank}: An algorithm originally used by Google to rank web pages. It assigns a probability distribution representing the likelihood of visiting each node, considering the structure of the network.
+\end{itemize}
+
+These network features were then incorporated into the LSTM neural network models as additional input features. By combining traditional earthquake features with complex network properties, we aimed to enhance the model's ability to capture the underlying patterns and relationships within the seismic data. The results of these experiments are presented in Section \ref{results}, demonstrating the impact of incorporating complex network analysis on earthquake forecasting accuracy.
 
 \section{Results}\label{results}
 
@@ -223,8 +235,6 @@ To incorporate complex network features into the training process, we calculated
         231.743  & 1483.400  & 128      & 0.296     & 16         & 140         & 6           & 0.004 & 32         & 0.381    & 4         & closeness        & 100       \\
         \botrule
     \end{tabularx}
-    
-    
     \footnotetext{
         Top 4 models for 2 quantiles, 3 quantiles, and 4 quantiles, respectively. The table shows the loss, test loss, lookback, test size, batch size, hidden size, LSTM layers, learning rate, maximum epochs, accuracy, quantiles, network features, and node size.
     }
