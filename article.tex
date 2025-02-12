@@ -14,6 +14,7 @@
 \usepackage{algpseudocode}%
 \usepackage{listings}%
 \usepackage{lmodern}
+\usepackage{tabularx}
 
 
 \raggedbottom
@@ -179,51 +180,51 @@ It was observed that the best model with 2 quantiles achieved 64\% accuracy, fol
 To incorporate complex network features into the training process, we calculated network properties for each window of events. The LSTM network was then trained using both earthquake features and network properties, with quantiles and node sizes varied for each case, and the selection of network properties determined through hyperparameter tuning. The results are presented in Table \ref{tab3}. The best model with 2 quantiles achieved 65\% accuracy, followed by the best model with 3 quantiles at 48\% accuracy, and the best model with 4 quantiles at 43\% accuracy.
 
 \begin{sidewaystable}
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{@{}llllllllllllll@{}}
-            \toprule
-            loss     & test loss & lookback & test size & batch size & hidden size & lstm layers & lr    & max epochs & accuracy & quantiles & network features & node size \\
-            \midrule
-            112.576  & 433.087   & 82       & 0.173     & 18         & 20          & 6           & 0.003 & 39         & 0.648    & 2         & betweenness      & 30        \\
-            114.802  & 248.123   & 104      & 0.103     & 19         & 133         & 7           & 0.004 & 18         & 0.647    & 2         & clustering       & 30        \\
-            513.069  & 273.118   & 122      & 0.110     & 4          & 106         & 2           & 0.001 & 58         & 0.644    & 2         & degree           & 30        \\
-            \midrule
-            705.396  & 1115.538  & 149      & 0.276     & 4          & 19          & 4           & 0.002 & 38         & 0.473    & 3         & degree           & 30        \\
-            312.249  & 985.935   & 145      & 0.239     & 9          & 64          & 2           & 0.008 & 18         & 0.465    & 3         & betweenness      & 30        \\
-            404.635  & 416.466   & 79       & 0.102     & 9          & 138         & 9           & 0.000 & 55         & 0.464    & 3         & betweenness      & 30        \\
-            \midrule
-            269.973  & 1138.736  & 105      & 0.225     & 14         & 73          & 8           & 0.001 & 38         & 0.408    & 4         & clustering       & 30        \\
-            527.298  & 1006.915  & 75       & 0.166     & 6          & 68          & 2           & 0.003 & 30         & 0.391    & 4         & clustering       & 30        \\
-            212.685  & 813.492   & 148      & 0.161     & 19         & 64          & 6           & 0.000 & 67         & 0.375    & 4         & pagerank         & 30        \\
-            \midrule
-            1063.339 & 456.658   & 13       & 0.152     & 2          & 36          & 3           & 0.007 & 12         & 0.651    & 2         & pagerank         & 50        \\
-            128.613  & 602.748   & 147      & 0.249     & 14         & 69          & 4           & 0.000 & 54         & 0.647    & 2         & pagerank         & 50        \\
-            249.543  & 417.286   & 82       & 0.162     & 8          & 12          & 2           & 0.001 & 45         & 0.640    & 2         & pagerank         & 50        \\
-            \midrule
-            402.819  & 1202.975  & 36       & 0.300     & 7          & 124         & 4           & 0.002 & 52         & 0.487    & 3         & closeness        & 50        \\
-            406.882  & 1182.266  & 139      & 0.293     & 7          & 101         & 7           & 0.000 & 66         & 0.480    & 3         & pagerank         & 50        \\
-            192.634  & 1022.804  & 20       & 0.184     & 11         & 80          & 2           & 0.004 & 32         & 0.464    & 3         & betweenness      & 50        \\
-            \midrule
-            308.907  & 959.463   & 137      & 0.194     & 13         & 70          & 5           & 0.001 & 45         & 0.432    & 4         & closeness        & 50        \\
-            350.506  & 836.819   & 10       & 0.165     & 12         & 116         & 3           & 0.000 & 39         & 0.429    & 4         & clustering       & 50        \\
-            664.843  & 1094.966  & 10       & 0.212     & 6          & 117         & 2           & 0.000 & 46         & 0.409    & 4         & closeness        & 50        \\
-            \midrule
-            294.545  & 355.232   & 49       & 0.142     & 7          & 128         & 6           & 0.000 & 26         & 0.671    & 2         & betweenness      & 100       \\
-            297.019  & 685.403   & 18       & 0.280     & 6          & 114         & 4           & 0.001 & 57         & 0.662    & 2         & closeness        & 100       \\
-            720.330  & 352.685   & 84       & 0.145     & 3          & 56          & 6           & 0.003 & 39         & 0.657    & 2         & pagerank         & 100       \\
-            \midrule
-            254.312  & 846.157   & 94       & 0.202     & 11         & 62          & 4           & 0.001 & 11         & 0.467    & 3         & betweenness      & 100       \\
-            191.379  & 1270.860  & 140      & 0.289     & 12         & 51          & 2           & 0.001 & 23         & 0.466    & 3         & clustering       & 100       \\
-            183.231  & 497.836   & 116      & 0.106     & 16         & 27          & 5           & 0.000 & 23         & 0.461    & 3         & degree           & 100       \\
-            \midrule
-            696.927  & 832.365   & 53       & 0.163     & 6          & 140         & 8           & 0.000 & 41         & 0.417    & 4         & pagerank         & 100       \\
-            300.884  & 1110.282  & 13       & 0.219     & 13         & 35          & 3           & 0.004 & 62         & 0.403    & 4         & degree           & 100       \\
-            231.743  & 1483.400  & 128      & 0.296     & 16         & 140         & 6           & 0.004 & 32         & 0.381    & 4         & closeness        & 100       \\
-            \botrule
-        \end{tabular}
-    }
     \caption{Results of the LSTM Neural Networks with Network Features}\label{tab3}
+    
+    \begin{tabularx}{\textwidth}{@{}XXXXXXXXXXXll@{}}
+        \toprule
+        loss     & test loss & lookback & test size & batch size & hidden size & lstm layers & lr    & max epochs & accuracy & quantiles & network features & node size \\
+        \midrule
+        112.576  & 433.087   & 82       & 0.173     & 18         & 20          & 6           & 0.003 & 39         & 0.648    & 2         & betweenness      & 30        \\
+        114.802  & 248.123   & 104      & 0.103     & 19         & 133         & 7           & 0.004 & 18         & 0.647    & 2         & clustering       & 30        \\
+        513.069  & 273.118   & 122      & 0.110     & 4          & 106         & 2           & 0.001 & 58         & 0.644    & 2         & degree           & 30        \\
+        \midrule
+        705.396  & 1115.538  & 149      & 0.276     & 4          & 19          & 4           & 0.002 & 38         & 0.473    & 3         & degree           & 30        \\
+        312.249  & 985.935   & 145      & 0.239     & 9          & 64          & 2           & 0.008 & 18         & 0.465    & 3         & betweenness      & 30        \\
+        404.635  & 416.466   & 79       & 0.102     & 9          & 138         & 9           & 0.000 & 55         & 0.464    & 3         & betweenness      & 30        \\
+        \midrule
+        269.973  & 1138.736  & 105      & 0.225     & 14         & 73          & 8           & 0.001 & 38         & 0.408    & 4         & clustering       & 30        \\
+        527.298  & 1006.915  & 75       & 0.166     & 6          & 68          & 2           & 0.003 & 30         & 0.391    & 4         & clustering       & 30        \\
+        212.685  & 813.492   & 148      & 0.161     & 19         & 64          & 6           & 0.000 & 67         & 0.375    & 4         & pagerank         & 30        \\
+        \midrule
+        1063.339 & 456.658   & 13       & 0.152     & 2          & 36          & 3           & 0.007 & 12         & 0.651    & 2         & pagerank         & 50        \\
+        128.613  & 602.748   & 147      & 0.249     & 14         & 69          & 4           & 0.000 & 54         & 0.647    & 2         & pagerank         & 50        \\
+        249.543  & 417.286   & 82       & 0.162     & 8          & 12          & 2           & 0.001 & 45         & 0.640    & 2         & pagerank         & 50        \\
+        \midrule
+        402.819  & 1202.975  & 36       & 0.300     & 7          & 124         & 4           & 0.002 & 52         & 0.487    & 3         & closeness        & 50        \\
+        406.882  & 1182.266  & 139      & 0.293     & 7          & 101         & 7           & 0.000 & 66         & 0.480    & 3         & pagerank         & 50        \\
+        192.634  & 1022.804  & 20       & 0.184     & 11         & 80          & 2           & 0.004 & 32         & 0.464    & 3         & betweenness      & 50        \\
+        \midrule
+        308.907  & 959.463   & 137      & 0.194     & 13         & 70          & 5           & 0.001 & 45         & 0.432    & 4         & closeness        & 50        \\
+        350.506  & 836.819   & 10       & 0.165     & 12         & 116         & 3           & 0.000 & 39         & 0.429    & 4         & clustering       & 50        \\
+        664.843  & 1094.966  & 10       & 0.212     & 6          & 117         & 2           & 0.000 & 46         & 0.409    & 4         & closeness        & 50        \\
+        \midrule
+        294.545  & 355.232   & 49       & 0.142     & 7          & 128         & 6           & 0.000 & 26         & 0.671    & 2         & betweenness      & 100       \\
+        297.019  & 685.403   & 18       & 0.280     & 6          & 114         & 4           & 0.001 & 57         & 0.662    & 2         & closeness        & 100       \\
+        720.330  & 352.685   & 84       & 0.145     & 3          & 56          & 6           & 0.003 & 39         & 0.657    & 2         & pagerank         & 100       \\
+        \midrule
+        254.312  & 846.157   & 94       & 0.202     & 11         & 62          & 4           & 0.001 & 11         & 0.467    & 3         & betweenness      & 100       \\
+        191.379  & 1270.860  & 140      & 0.289     & 12         & 51          & 2           & 0.001 & 23         & 0.466    & 3         & clustering       & 100       \\
+        183.231  & 497.836   & 116      & 0.106     & 16         & 27          & 5           & 0.000 & 23         & 0.461    & 3         & degree           & 100       \\
+        \midrule
+        696.927  & 832.365   & 53       & 0.163     & 6          & 140         & 8           & 0.000 & 41         & 0.417    & 4         & pagerank         & 100       \\
+        300.884  & 1110.282  & 13       & 0.219     & 13         & 35          & 3           & 0.004 & 62         & 0.403    & 4         & degree           & 100       \\
+        231.743  & 1483.400  & 128      & 0.296     & 16         & 140         & 6           & 0.004 & 32         & 0.381    & 4         & closeness        & 100       \\
+        \botrule
+    \end{tabularx}
+    
+    
     \footnotetext{
         Top 4 models for 2 quantiles, 3 quantiles, and 4 quantiles, respectively. The table shows the loss, test loss, lookback, test size, batch size, hidden size, LSTM layers, learning rate, maximum epochs, accuracy, quantiles, network features, and node size.
     }
