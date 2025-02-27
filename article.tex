@@ -73,8 +73,8 @@ In this section, we take a look at the training and test data, and the steps to 
 The earthquake events used in this study were obtained from the U.S. Geological Survey (USGS) for the Colombian region, with latitudes ranging from -0.132° to 9.796° and longitudes from -80.343° to -72.466°. The events are plotted by magnitude and depth in \textbf{Figure \ref{fig1}}. The retrieved dataset contained 5462 events since 1975, which was reduced to 4042 events after processing. The data cleaning process involved removing empty values, converting string values to numerical values for certain features, and filtering out events that were not validated by multiple sources, had missing data points, or had zero values. The selected events were of the mb type, representing the body wave magnitude, and included the depth of the event.
 
 \begin{figure}[H]
-    \includegraphics[width=0.49\textwidth]{img/mag01.png}
-    \includegraphics[width=0.49\textwidth]{img/depth01.png}
+    \includegraphics[width=0.49\textwidth]{img/mag.png}
+    \includegraphics[width=0.49\textwidth]{img/depth.png}
     \caption{Earthquake events visualization by Magnitude (left) and Depth (right)}\label{fig1}
 \end{figure}
 \unskip
@@ -84,7 +84,7 @@ Following the methodology proposed by Leon et al. \cite{leon_modeling_2018}, con
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{img/diagram-20250202.png}
+        \includegraphics[width=0.7\textwidth]{img/eqnetwork.eps}
         \caption{Quick overview of the creation of an earthquake network. A geographical region is divided into nodes of equal size in kilometers, then each event is clasified in each node by its latitude and longitude, we later connect each node by the time sequence of the events. We can observe nodes 7, 5, 8, 3 are connected in that order, first (7,5), then (5,8), and finally (8,3).
         } \label{fig2}
     \end{center}
@@ -118,7 +118,7 @@ The sequences were explored according to the lookback parameter, we generated di
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.6\textwidth]{img/dataset-diagram.png}
+        \includegraphics[width=0.6\textwidth]{img/dataset.eps}
         \caption{Dataset for the LSTM neural network.\label{fig3}}
     \end{center}
 \end{figure}
