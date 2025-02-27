@@ -145,7 +145,7 @@ For each moving window, we built the corresponding network by connecting nodes b
     \item \textbf{PageRank}: An algorithm originally used by Google to rank web pages. It assigns a probability distribution representing the likelihood of visiting each node, considering the structure of the network.
 \end{itemize}
 
-These network features were then incorporated into the LSTM neural network models as additional input features. By combining traditional earthquake features with complex network properties, we aimed to enhance the model's ability to capture the underlying patterns and relationships within the seismic data. The results of these experiments are presented in Section \ref{results}, demonstrating the impact of incorporating complex network analysis on earthquake forecasting accuracy.
+These network features were then incorporated into the LSTM neural network models as additional input features. By integrating traditional earthquake features with complex network properties, we aimed to enhance the model's ability to capture the underlying patterns and relationships within the seismic data. The results of these experiments are presented in Section \ref{results}, demonstrating the impact of incorporating complex network analysis on earthquake forecasting accuracy.
 
 \section{Results}\label{results}
 
@@ -158,28 +158,28 @@ Multiple experiments were conducted as shown in Table \ref{tab2}. We categorized
     \item 4 quantiles: The feature is divided into four sections, each containing 25\% of the data, corresponding to the categories low, low-medium, medium-high, and high.
 \end{enumerate}
 
-It was observed that the best model with 2 quantiles achieved 64\% accuracy, followed by the best model with 3 quantiles with 46\% accuracy, and the model with 4 quantiles with 41\% accuracy.
+It was observed that one of the best models with 2 quantiles achieved 64\% accuracy, followed by the best model with 3 quantiles with 46\% accuracy, and the model with 4 quantiles with 41\% accuracy.
 
 \begin{sidewaystable}
     \caption{Results of the LSTM Neural Networks}\label{tab2}
     \begin{tabular}{@{}lllllllllll@{}}
         \toprule%
-        loss     & test loss & lookback & test size & batch size & hidden size & lstm layers & lr    & max epochs & accuracy & quantiles \\
+        loss     & test loss & lookback & test size & batch size & hidden size & lstm layers & lr    & max epochs & accuracy       & quantiles \\
         \midrule
-        1014.889 & 449.927   & 33       & 0.176     & 2          & 80          & 4           & 0.000 & 60         & 0.640    & 2         \\
-        823.150  & 733.873   & 144      & 0.282     & 2          & 97          & 2           & 0.000 & 25         & 0.634    & 2         \\
-        133.589  & 690.542   & 102      & 0.268     & 14         & 129         & 8           & 0.001 & 19         & 0.606    & 2         \\
-        126.626  & 367.758   & 147      & 0.139     & 18         & 144         & 7           & 0.000 & 58         & 0.582    & 2         \\
+        1014.889 & 449.927   & 33       & 0.176     & 2          & 80          & 4           & 0.000 & 60         & \textbf{0.640} & 2         \\
+        823.150  & 733.873   & 144      & 0.282     & 2          & 97          & 2           & 0.000 & 25         & 0.634          & 2         \\
+        133.589  & 690.542   & 102      & 0.268     & 14         & 129         & 8           & 0.001 & 19         & 0.606          & 2         \\
+        126.626  & 367.758   & 147      & 0.139     & 18         & 144         & 7           & 0.000 & 58         & 0.582          & 2         \\
         \midrule
-        409.568  & 525.436   & 78       & 0.117     & 7          & 77          & 4           & 0.002 & 45         & 0.463    & 3         \\
-        150.548  & 1386.181  & 54       & 0.270     & 12         & 105         & 2           & 0.003 & 48         & 0.447    & 3         \\
-        38.531   & 1464.909  & 124      & 0.119     & 19         & 33          & 4           & 0.001 & 33         & 0.430    & 3         \\
-        165.997  & 1109.243  & 13       & 0.263     & 19         & 113         & 2           & 0.000 & 53         & 0.413    & 3         \\
+        409.568  & 525.436   & 78       & 0.117     & 7          & 77          & 4           & 0.002 & 45         & \textbf{0.463} & 3         \\
+        150.548  & 1386.181  & 54       & 0.270     & 12         & 105         & 2           & 0.003 & 48         & 0.447          & 3         \\
+        38.531   & 1464.909  & 124      & 0.119     & 19         & 33          & 4           & 0.001 & 33         & 0.430          & 3         \\
+        165.997  & 1109.243  & 13       & 0.263     & 19         & 113         & 2           & 0.000 & 53         & 0.413          & 3         \\
         \midrule
-        405.722  & 1245.538  & 65       & 0.227     & 8          & 129         & 5           & 0.000 & 25         & 0.411    & 4         \\
-        173.115  & 848.971   & 106      & 0.134     & 19         & 101         & 2           & 0.001 & 28         & 0.397    & 4         \\
-        266.301  & 790.450   & 148      & 0.158     & 16         & 76          & 5           & 0.000 & 52         & 0.387    & 4         \\
-        249.980  & 902.233   & 136      & 0.156     & 15         & 22          & 2           & 0.008 & 36         & 0.382    & 4         \\
+        405.722  & 1245.538  & 65       & 0.227     & 8          & 129         & 5           & 0.000 & 25         & \textbf{0.411} & 4         \\
+        173.115  & 848.971   & 106      & 0.134     & 19         & 101         & 2           & 0.001 & 28         & 0.397          & 4         \\
+        266.301  & 790.450   & 148      & 0.158     & 16         & 76          & 5           & 0.000 & 52         & 0.387          & 4         \\
+        249.980  & 902.233   & 136      & 0.156     & 15         & 22          & 2           & 0.008 & 36         & 0.382          & 4         \\
         \botrule
     \end{tabular}
     \footnotetext{
@@ -188,7 +188,7 @@ It was observed that the best model with 2 quantiles achieved 64\% accuracy, fol
 \end{sidewaystable}
 \unskip
 
-To incorporate complex network features into the training process, we calculated network properties for each window of events. The LSTM network was then trained using both earthquake features and network properties, with quantiles and node sizes varied for each case, and the selection of network properties determined through hyperparameter tuning. The results are presented in Table \ref{tab3}. The best model with 2 quantiles achieved 65\% accuracy, followed by the best model with 3 quantiles at 48\% accuracy, and the best model with 4 quantiles at 43\% accuracy.
+To incorporate complex network features into the training process, we calculated network properties for each window of events. The LSTM network was then trained using both earthquake features and network properties, with quantiles and node sizes varied for each case, and the selection of network properties determined through hyperparameter tuning. The results are presented in Table \ref{tab3}. The best models with 2 quantiles achieved an average of 65\% accuracy, followed by the models trained with 3 quantiles at an average of 47\% accuracy, and models trained with 4 quantiles at an average of 40\% accuracy.
 
 \begin{sidewaystable}
     \caption{Results of the LSTM Neural Networks with Network Features}\label{tab3}
@@ -242,25 +242,25 @@ To incorporate complex network features into the training process, we calculated
 
 \section{Discussion}\label{discussion}
 
-In this study, we investigated the application of LSTM neural networks for earthquake forecasting in Colombia by leveraging both seismic event features and complex network metrics. The experiments highlight that models classifying earthquake magnitude into 2 quantiles consistently achieved higher accuracy (up to 67\%) compared to those using 3 or 4 quantiles, which obtained 48\% and 43\% accuracy respectively. This suggests that reducing the number of classes simplifies the classification task, resulting in more reliable predictions.
+In this study, we investigated the application of LSTM neural networks for earthquake forecasting in Colombia by integrating seismic event features and complex network metrics. The experiments without network features show that models classifying earthquake magnitude into 2 quantiles consistently achieved accuracy values up to 64\%, compared to those using 3 or 4 quantiles, which achieved up to 46\% and 41\% accuracy respectively. This suggests that reducing the number of classes simplifies the classification task, resulting in more reliable predictions.
 
-Furthermore, the inclusion of complex network features—such as degree centrality, clustering, betweenness, closeness, and page rank—provided additional insight into the spatial-temporal relationships among earthquake events. While the improvements were moderate, the network-enhanced models underscored the potential benefits of incorporating structural information beyond traditional seismic indicators.
+Furthermore, the inclusion of complex network features—such as degree centrality, clustering, betweenness, closeness, and PageRank—provided additional insights into the training, even though they were not used all at once. The improvements were moderate: models trained with 2 quantiles achieved an average accuracy of up to 65\%, models trained with 3 quantiles reached an average accuracy of up to 47\%, and models trained with 4 quantiles achieved an average accuracy of up to 40\%, which is close to a 1\% increase in accuracy compared to models without network features.
 
-These findings indicate that integrating complex network analysis can enhance the performance of neural network-based forecasting. However, one of the main challenges we faced was the limited amount of data available. With more extensive datasets, we could potentially achieve even better results. Future research should focus on further refining these models through advanced hyperparameter tuning, exploration of alternative feature combinations, and validation using larger datasets to achieve more robust and accurate earthquake predictions.
+These findings indicate that integrating complex network analysis can enhance the performance of neural network-based forecasting. One of the main challenges we faced was the limited amount of data available. With more extensive datasets, we could potentially achieve even better results. Future research should focus on further refining these models through advanced hyperparameter tuning, exploration of alternative feature combinations, and validation using larger datasets to achieve more robust and accurate earthquake predictions.
 
-Additionally, the study opens up several avenues for future work. One potential direction is the exploration of other machine learning models and architectures, such as convolutional neural networks (CNNs) or transformer models, which might capture different aspects of the data more effectively. Another area worth investigating is the integration of real-time data streams to continuously update and improve the forecasting models. Moreover, incorporating additional external factors, such as geological and environmental data, could provide a more comprehensive understanding of the factors influencing earthquake occurrences.
+Additionally, this study opens the door for future work, such as exploring other machine learning models, like transformer models, which might capture different insights from the data more effectively. Expanding the search area or applying the approach to a site with a higher number of events can help improve the outcomes. Moreover, incorporating additional features into the time-series could provide more insights into what is generating the next event.
 
-In conclusion, this study demonstrates the feasibility and potential of using LSTM neural networks combined with complex network analysis for earthquake forecasting. The promising results encourage further research and development in this area, with the ultimate goal of improving earthquake prediction accuracy and contributing to disaster preparedness and risk mitigation efforts.
+In conclusion, this study demonstrates the feasibility and benefits of using LSTM neural networks integrated with complex network analysis for earthquake forecasting. The promising results encourage further research and development in this area, with the ultimate goal of improving earthquake prediction accuracy and contributing to disaster preparedness and risk mitigation efforts.
 
 \section{Conclusion}\label{conclusion}
 
-In this study, we explored the application of LSTM neural networks combined with complex network analysis for earthquake forecasting in Colombia. By leveraging seismic event features and complex network metrics, we aimed to improve the accuracy of earthquake magnitude classification. Our experiments demonstrated that models classifying earthquake magnitude into 2 quantiles achieved the highest accuracy, reaching up to 67\%. Models using 3 and 4 quantiles achieved lower accuracies of 48\% and 43\%, respectively.
+In this study, we explored the application of LSTM neural networks combined with complex network analysis for earthquake forecasting in Colombia. By integrating seismic event features and complex network metrics, we moderately improved the accuracy of earthquake magnitude classification up to 1\%. Our experiments demonstrated that models classifying earthquake magnitude into 2 quantiles consistently achieved the highest accuracy, reaching up to 65\%. Models using 3 and 4 quantiles achieved lower accuracies of 47\% and 41\%, respectively.
 
-The inclusion of complex network features provided additional insights into the spatial-temporal relationships among earthquake events, enhancing the performance of the neural network models. However, the improvements were moderate, indicating that while complex network analysis is beneficial, there is still room for further refinement and optimization.
+Incorporating complex network features provided additional insights into the earthquake time-series, enhancing the average performance of the LSTM neural network models. Although the improvements were moderate, this indicates that while complex network analysis is beneficial, there is still room for further refinement and optimization.
 
-One of the main challenges faced in this study was the limited amount of data available. Future research should focus on utilizing larger datasets, exploring alternative machine learning models and architectures, and incorporating additional external factors to achieve more robust and accurate earthquake predictions.
+One of the main challenges in this study was the limited amount of available data. Future research should focus on using larger datasets, exploring alternative machine learning models and architectures, and incorporating additional external factors to achieve more robust and accurate earthquake predictions.
 
-Overall, this study demonstrates the potential of combining LSTM neural networks with complex network analysis for earthquake forecasting. The promising results encourage further research and development in this area, with the ultimate goal of improving earthquake prediction accuracy and contributing to disaster preparedness and risk mitigation efforts.
+Overall, this study demonstrates the potential of integrating LSTM neural networks with complex network analysis for earthquake forecasting. The promising results encourage further research and development in this area, with the ultimate goal of improving earthquake prediction accuracy and contributing to disaster preparedness and risk mitigation efforts.
 
 \backmatter
 
